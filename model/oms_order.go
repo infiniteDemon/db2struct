@@ -1,0 +1,49 @@
+package model
+
+type OmsOrder struct {
+	Id                    string  `gorm:"not null comment('订单id') INT(11)" json:"id"`
+	MemberId              string  `gorm:"comment('')" json:"member_id"`
+	CouponId              string  `gorm:"comment('')" json:"coupon_id"`
+	OrderSn               string  `gorm:"comment('订单编号')" json:"order_sn"`
+	CreateTime            string  `gorm:"comment('提交时间')" json:"create_time"`
+	MemberUsername        string  `gorm:"comment('用户帐号')" json:"member_username"`
+	TotalAmount           float64 `gorm:"comment('订单总金额')" json:"total_amount"`
+	PayAmount             float64 `gorm:"comment('应付金额（实际支付金额）')" json:"pay_amount"`
+	FreightAmount         float64 `gorm:"comment('运费金额')" json:"freight_amount"`
+	PromotionAmount       float64 `gorm:"comment('促销优化金额（促销价、满减、阶梯价）')" json:"promotion_amount"`
+	IntegrationAmount     float64 `gorm:"comment('积分抵扣金额')" json:"integration_amount"`
+	CouponAmount          float64 `gorm:"comment('优惠券抵扣金额')" json:"coupon_amount"`
+	DiscountAmount        float64 `gorm:"comment('管理员后台调整订单使用的折扣金额')" json:"discount_amount"`
+	PayType               int     `gorm:"comment('支付方式：0->未支付；1->支付宝；2->微信')" json:"pay_type"`
+	SourceType            int     `gorm:"comment('订单来源：0->PC订单；1->app订单')" json:"source_type"`
+	Status                int     `gorm:"comment('订单状态：0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单')" json:"status"`
+	OrderType             int     `gorm:"comment('订单类型：0->正常订单；1->秒杀订单')" json:"order_type"`
+	DeliveryCompany       string  `gorm:"comment('物流公司(配送方式)')" json:"delivery_company"`
+	DeliveryUrl           string  `gorm:"comment('快递单url')" json:"delivery_url"`
+	DeliverySn            string  `gorm:"comment('物流单号')" json:"delivery_sn"`
+	AutoConfirmDay        int     `gorm:"comment('自动确认时间（天）')" json:"auto_confirm_day"`
+	Integration           int     `gorm:"comment('可以获得的积分')" json:"integration"`
+	Growth                int     `gorm:"comment('可以活动的成长值')" json:"growth"`
+	PromotionInfo         string  `gorm:"comment('活动信息')" json:"promotion_info"`
+	BillType              int     `gorm:"comment('发票类型：0->不开发票；1->电子发票；2->纸质发票')" json:"bill_type"`
+	BillHeader            string  `gorm:"comment('发票抬头')" json:"bill_header"`
+	BillContent           string  `gorm:"comment('发票内容')" json:"bill_content"`
+	BillReceiverPhone     string  `gorm:"comment('收票人电话')" json:"bill_receiver_phone"`
+	BillReceiverEmail     string  `gorm:"comment('收票人邮箱')" json:"bill_receiver_email"`
+	ReceiverName          string  `gorm:"comment('收货人姓名')" json:"receiver_name"`
+	ReceiverPhone         string  `gorm:"comment('收货人电话')" json:"receiver_phone"`
+	ReceiverPostCode      string  `gorm:"comment('收货人邮编')" json:"receiver_post_code"`
+	ReceiverProvince      string  `gorm:"comment('省份/直辖市')" json:"receiver_province"`
+	ReceiverCity          string  `gorm:"comment('城市')" json:"receiver_city"`
+	ReceiverRegion        string  `gorm:"comment('区')" json:"receiver_region"`
+	ReceiverDetailAddress string  `gorm:"comment('详细地址')" json:"receiver_detail_address"`
+	Note                  string  `gorm:"comment('订单备注')" json:"note"`
+	ConfirmStatus         int     `gorm:"comment('确认收货状态：0->未确认；1->已确认')" json:"confirm_status"`
+	DeleteStatus          int     `gorm:"comment('删除状态：0->未删除；1->已删除')" json:"delete_status"`
+	UseIntegration        int     `gorm:"comment('下单时使用的积分')" json:"use_integration"`
+	PaymentTime           string  `gorm:"comment('支付时间')" json:"payment_time"`
+	DeliveryTime          string  `gorm:"comment('发货时间')" json:"delivery_time"`
+	ReceiveTime           string  `gorm:"comment('确认收货时间')" json:"receive_time"`
+	CommentTime           string  `gorm:"comment('评价时间')" json:"comment_time"`
+	ModifyTime            string  `gorm:"comment('修改时间')" json:"modify_time"`
+}
